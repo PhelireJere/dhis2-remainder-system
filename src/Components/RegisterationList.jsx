@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import 'src/Components/RegisterationList.css';
 
 const RegisterationList= () => {
   const [registeredPtients, setRegisteredPatients] = useState([]);
@@ -12,19 +13,19 @@ const RegisterationList= () => {
   }, []);
 
   return (
-    <div className = "bg-white p-8 rounded-lg shadow-md max-w-lg mx-auto my-8">
-       <h2 className='text-2xl text-blue-800 font-semibold mb-4 center'>Registered Patients </h2>
+    <div className = "container">
+       <h2 className='heading'>Registered Patients </h2>
            
            {registeredPatients.length > 0 ? 
              (registeredPatients.map((patient, index) => (
           
-              <div className ="bg-white rounded-lg shadow p-6">
+              <div key={index}className ="patient-card">
                  <p><strong>First Name: </strong>{patient.firstName}</p>
                  <p><strong>Last Name: </strong>{patient.lastName}</p>
               </div>
              ))
             ) : (
-              <p className='text-center text-gray-600'>No registered patients</p>
+              <p className='no-patients'>No registered patients</p>
             )}
 
     </div>
