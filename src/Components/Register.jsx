@@ -27,14 +27,7 @@ const Register = ({ setFormData}) => {
      
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        const storedData = localStorage.getItem("registeredPatients");
-        const patientsList = storedData ? JSON.parse(storedData) : [];
-        
-        patientsList.push(formData);
-
-        localStorage.setItem("registeredPatients", JSON.stringify(patientsList));
-        
+        setFormData(formData)
         navigate('/registeration-list');  
     };
 
