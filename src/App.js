@@ -1,14 +1,12 @@
 import React from "react";
-import Sidebar from "./Assets/Sidebar";
-import Home from "./Components/Home/Home"
+//import Sidebar from "./Assets/Sidebar";
+import AppointmentPage from "./Components/appointment/Appointment";
+
 
 const App = () => {
   return (
     <div className="flex">
-      <Sidebar />
-      
-        <Home/>
-      
+      <Sidebar/>
     </div>
   );
 };

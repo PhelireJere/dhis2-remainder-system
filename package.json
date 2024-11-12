@@ -11,9 +11,11 @@
     "deploy": "d2-app-scripts deploy"
   },
   "devDependencies": {
-    "@dhis2/cli-app-scripts": "^11.7.5"
+    "@dhis2/cli-app-scripts": "^5.0.0"
   },
   "dependencies": {
-    "@dhis2/app-runtime": "^3.11.2"
+    "@dhis2/app-runtime": "^3.11.2",
+    "html-webpack-plugin": "^5.6.3",
+    "react-router-dom": "^6.28.0"
   }
 }
