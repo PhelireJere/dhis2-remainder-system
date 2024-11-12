@@ -1,7 +1,7 @@
 .sidebar-container {
+    width: 16rem; 
     height: 100vh;
-    width: 16rem;
-    background-color: #2c6693; 
+    background-color: #2C6693; 
     color: white;
     display: flex;
     flex-direction: column;
@@ -12,7 +12,7 @@
     align-items: center;
     justify-content: center;
     height: 5rem;
-    border-bottom: 1px solid #4a5568; /* Gray-700 */
+    border-bottom: 1px solid #4a5568;
 }
 
 .sidebar-nav {
@@ -24,12 +24,12 @@
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    border-radius: 0.375rem; /* rounded-md equivalent */
+    border-radius: 0.375rem; 
     cursor: pointer;
 }
 
 .nav-item:hover {
-    background-color: #4a5568; /* Gray-700 */
+    background-color: #4a5568; 
 }
 
 .nav-icon {
@@ -38,7 +38,7 @@
 
 .footer {
     padding: 1rem;
-    border-top: 1px solid #4a5568; /* Gray-700 */
+    border-top: 1px solid #4a5568; 
     text-align: center;
-    font-size: 0.875rem; /* text-sm equivalent */
+    font-size: 0.875rem; 
 }

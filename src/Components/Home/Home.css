@@ -1,0 +1,32 @@
+/* Home.css */
+
+.home-container {
+    width: 100%;
+    padding: 2rem;
+    background-color: #f7fafc;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.card {
+    background-color: #2d3748; /* Gray-800 */
+    color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-value {
+    font-size: 1.5rem;
+}

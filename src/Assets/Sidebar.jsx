@@ -15,13 +15,19 @@ const Sidebar = () => {
             <span>Dashboard</span>
           </li>
           <li className="nav-item">
-            <span>Patient Records</span>
+            <span>Regstration</span>
           </li>
           <li className="nav-item">
-            <span>Reminders</span>
+            <span>Enroll</span>
           </li>
           <li className="nav-item">
-            <span>Settings</span>
+            <span>Appointments</span>
+          </li>
+          <li className="nav-item">
+            <span>messaging</span>
+          </li>
+          <li className="nav-item">
+            <span>appointment schedure</span>
           </li>
         </ul>
       </nav>
