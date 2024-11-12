@@ -18,7 +18,7 @@
   font-weight: bold;
   margin-bottom: 1rem;
   text-align: center;
-  color: #111827;
+  color: #3a3b3d;
 }
 
 .label {
@@ -28,15 +28,15 @@
 
 .input {
   background-color: #D1FAE5;
-  border: 1px solid #111827;
+  border: 1px solid #4d4d4e;
   border-radius: 0.25rem;
   width: 100%;
   padding: 0.5rem;
-  color: #121213;
+  color: #3a3b3d;
 }
 
 .button {
-  background-color: #041647c0;
+  background-color:#3a3b3d;
   color: white;
   font-weight: bold;
   padding: 0.5rem 1rem;
