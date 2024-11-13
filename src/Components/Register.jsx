@@ -6,6 +6,7 @@ const Register = () => {
         firstName: '',
         lastName: '',
         age: '',
+        
         gender: '',
         phoneNumber: ''
     });
@@ -71,7 +72,7 @@ const Register = () => {
             <ul>
                 {patients.map((patient, index) => (
                     <li key={index}>
-                        {patient.firstName} {patient.lastName}, Age: {patient.age}, Gender: {patient.gender}, Phone: {patient.phoneNumber}
+                        {patient.firstName} {patient.lastName}
                     </li>
                 ))}
             </ul>
