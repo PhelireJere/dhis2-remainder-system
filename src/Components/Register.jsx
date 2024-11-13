@@ -1,87 +1,82 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import 'src/Components/Register.css';
+import React, { useState } from 'react';
+import './Register.css';
 
-const Register = ({ setFormData}) => {
-    const [formData, setLocalFormData] = useState({ firstName: '', lastName: '', gender: '', age: '', phoneNumber: ''});
-    const navigate = useNavigate();
+const Register = () => {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        age: '',
+        gender: '',
+        phoneNumber: ''
+    });
 
-    useEffect(() => {
-        const storedData = localStorage.getItem('formData');
-        if(storedData) {
-            setLocalFormData(JSON.parse(storedData));
-        }
-    }, []);
+    const [patients, setPatients] = useState([]);
 
     const handleChange = (e) => {
-        const {name,value} = e.target;
-        const updatedFormData = {
-            ...formData,
-            [name]:value
-        };
-        setLocalFormData(updatedFormData);
-        localStorage.setItem('formData', JSON.stringify(updatedFormData));
+        const { id, value } = e.target;
+        setFormData({ ...formData, [id]: value });
     };
 
-     
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFormData(formData)
-        navigate('/registeration-list');  
+        setPatients([...patients, formData]);
+        setFormData({
+            firstName: '',
+            lastName: '',
+            age: '',
+            gender: '',
+            phoneNumber: ''
+        });
+    };
+
+    const handleCancel = () => {
+        setFormData({
+            firstName: '',
+            lastName: '',
+            age: '',
+            gender: '',
+            phoneNumber: ''
+        });
     };
 
     return (
-          <div class = "form-wrapper">
-           <h1 className="heading">Register</h1>
-            <div className = "container">
-              <form onSubmit={handleSubmit} >
+        <div className="container">
+            <h1>Patient Registration</h1>
+            <form id="patientForm" onSubmit={handleSubmit}>
+                <label htmlFor="firstName">First Name:</label>
+                <input type="text" id="firstName" value={formData.firstName} onChange={handleChange} required />
                 
-                <div className = "input-group">
-                  <label htmlFor="firstName" className="label">
-                     First Name: 
-                   <input type = "text" name = "firstName" value = {formData.firstName} onChange = {handleChange} className="input" />
-                  </label>
-                </div>
-                <br/>
-
-                <div className = "input-group">
-                  <label htmlFor="lastName" className="label">
-                     Last Name: 
-                     <input type = "text" name = "lastName" value = {formData.lastName} onChange = {handleChange} className="input"/>
-                  </label>
-                </div>
-                <br/>
-
-                <div className = "input-group">
-                  <label  htmlFor="gender" className="label">
-                    Gender: 
-                    <input type = "text" name = "gender" value = {formData.gender} onChange = {handleChange} className="input"/>
-                  </label>
-                </div>
-                <br/>
-
-                <div className = "input-group">
-                  <label  htmlFor="age" className="label">
-                    Age: 
-                    <input type = "number" name = "age" value = {formData.age} onChange = {handleChange} className="input"/>
-                  </label>
-                </div>
-                <br/>
-
-                <div className = "input-group">
-                    <label htmlFor="phone Number" className="label">
-                        Phone Number:
-                        <input type = "number" name="phone number" value = {formData.phoneNumber} onChange = {handleChange} className="input" /> 
-                  </label>
-                </div>
-
-               <button className = "button" type = "submit">Register</button>
-             </form>
-             </div>
-  
-          </div>
-      
+                <label htmlFor="lastName">Last Name:</label>
+                <input type="text" id="lastName" value={formData.lastName} onChange={handleChange} required />
+                
+                <label htmlFor="age">Age:</label>
+                <input type="number" id="age" value={formData.age} onChange={handleChange} required />
+                
+                <label htmlFor="gender">Gender:</label>
+                <select id="gender" value={formData.gender} onChange={handleChange} required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                
+                <label htmlFor="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" value={formData.phoneNumber} onChange={handleChange} required />
+                
+                <button type="submit">Register</button>
+                <button type="button" onClick={handleCancel}>Cancel</button>
+            </form>
+            
+            <h2>Registered Patients</h2>
+            <ul>
+                {patients.map((patient, index) => (
+                    <li key={index}>
+                        {patient.firstName} {patient.lastName}, Age: {patient.age}, Gender: {patient.gender}, Phone: {patient.phoneNumber}
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
+
 export default Register;
