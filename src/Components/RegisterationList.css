@@ -1,0 +1,30 @@
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    max-width: 40rem;
+    margin: 2rem auto;
+  }
+  
+  .heading {
+    font-size: 1.5rem;
+    color: #3a3b3d;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .patient-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .no-patients {
+    text-align: center;
+    color: #3a3b3d; /* A soft gray */
+  }
+  
