@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Sidebar from "./Assets/Sidebar";
+import Sidebar from "./Asserts/sidebar";
 import Dashboard from "./Components/Dashboard";
 import Register from "./Components/Register";
 import Enroll from "./Components/Enrollment";
