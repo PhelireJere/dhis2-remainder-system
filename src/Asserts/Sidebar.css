@@ -1,4 +1,3 @@
-/* Sidebar.css */
 
 .sidebar-container {
     width: 250px;
@@ -24,7 +23,7 @@
   }
   
   .sidebar-nav ul {
-    list-style-type: none; /* Removes dots from list items */
+    list-style-type: none;
     padding: 0;
     margin: 0;
   }
