@@ -1,25 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './scheduling.css';
 
 const Schedulling = () => {
     const [formData, setFormData] = useState({
         patientName: '',
         contactNumber: '',
-        emailAddress: '',
-        dateOfBirth: '',
-        medicalRecordNumber: '',
-        appointmentType: '',
-        reminderType: '',
-        services: '',
-        location: '',
-        doctor: '',
-        department: '',
-        duration: '',
-        specialInstructions: '',
-        appointmentDate: ''
+        appointmentDate: '',
+        appointmentTime: '',
+        reminderType: 'Email',
+        messageTemplate: '',
+        venue: '',
+        duration: ''
     });
 
-    const [appointments, setAppointments] = useState([]);
+    const [reminders, setReminders] = useState([]);
+    const [patients, setPatients] = useState([]);
+
+    useEffect(() => {
+        // Fetch registered patients from the registration list (mock data for now)
+        const fetchPatients = async () => {
+            const response = await fetch('/api/patients'); // Replace with actual API endpoint
+            const data = await response.json();
+            setPatients(data);
+        };
+
+        fetchPatients();
+    }, []);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -28,22 +34,16 @@ const Schedulling = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setAppointments([...appointments, formData]);
+        setReminders([...reminders, formData]);
         setFormData({
             patientName: '',
             contactNumber: '',
-            emailAddress: '',
-            dateOfBirth: '',
-            medicalRecordNumber: '',
-            appointmentType: '',
-            reminderType: '',
-            services: '',
-            location: '',
-            doctor: '',
-            department: '',
-            duration: '',
-            specialInstructions: '',
-            appointmentDate: ''
+            appointmentDate: '',
+            appointmentTime: '',
+            reminderType: 'Email',
+            messageTemplate: '',
+            venue: '',
+            duration: ''
         });
     };
 
@@ -51,50 +51,40 @@ const Schedulling = () => {
         setFormData({
             patientName: '',
             contactNumber: '',
-            emailAddress: '',
-            dateOfBirth: '',
-            medicalRecordNumber: '',
-            appointmentType: '',
-            reminderType: '',
-            services: '',
-            location: '',
-            doctor: '',
-            department: '',
-            duration: '',
-            specialInstructions: '',
-            appointmentDate: ''
+            appointmentDate: '',
+            appointmentTime: '',
+            reminderType: 'Email',
+            messageTemplate: '',
+            venue: '',
+            duration: ''
         });
     };
 
     return (
         <div className="container">
-            <h1> Appointment Scheduling</h1>
-            <form id="appointmentForm" onSubmit={handleSubmit}>
+            <div className="header">
+                <img src="dhis2-logo.png" alt="DHIS2 Logo" className="logo" />
+                <h1>DHIS2 Reminder Scheduling</h1>
+            </div>
+            <form id="reminderForm" onSubmit={handleSubmit}>
                 <label htmlFor="patientName">Patient Name:</label>
-                <input type="text" id="patientName" value={formData.patientName} onChange={handleChange} required />
+                <select id="patientName" value={formData.patientName} onChange={handleChange} required>
+                    <option value="">Select Patient</option>
+                    {patients.map((patient) => (
+                        <option key={patient.id} value={patient.name}>
+                            {patient.name}
+                        </option>
+                    ))}
+                </select>
                 
                 <label htmlFor="contactNumber">Contact Number:</label>
                 <input type="tel" id="contactNumber" value={formData.contactNumber} onChange={handleChange} required />
                 
-                <label htmlFor="emailAddress">Email Address (optional):</label>
-                <input type="email" id="emailAddress" value={formData.emailAddress} onChange={handleChange} />
+                <label htmlFor="appointmentDate">Appointment Date:</label>
+                <input type="date" id="appointmentDate" value={formData.appointmentDate} onChange={handleChange} required />
                 
-                <label htmlFor="dateOfBirth">Date of Birth:</label>
-                <input type="date" id="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} required />
-                
-                <label htmlFor="medicalRecordNumber">Medical Record Number:</label>
-                <input type="text" id="medicalRecordNumber" value={formData.medicalRecordNumber} onChange={handleChange} required />
-                
-                <label htmlFor="appointmentType">Appointment Type:</label>
-                <select id="appointmentType" value={formData.appointmentType} onChange={handleChange} required>
-                    <option value="General Check-up">General Check-up</option>
-                    <option value="Follow-up">Follow-up</option>
-                    <option value="Consultation">Consultation</option>
-                    <option value="Lab Test">Lab Test</option>
-                    <option value="Vaccination">Vaccination</option>
-                    <option value="Physical Therapy">Physical Therapy</option>
-                    <option value="Emergency">Emergency</option>
-                </select>
+                <label htmlFor="appointmentTime">Appointment Time:</label>
+                <input type="time" id="appointmentTime" value={formData.appointmentTime} onChange={handleChange} required />
                 
                 <label htmlFor="reminderType">Reminder Type:</label>
                 <select id="reminderType" value={formData.reminderType} onChange={handleChange} required>
@@ -103,62 +93,27 @@ const Schedulling = () => {
                     <option value="Phone Call">Phone Call</option>
                 </select>
                 
-                <label htmlFor="services">Services/Procedure:</label>
-                <select id="services" value={formData.services} onChange={handleChange} required>
-                    <option value="Blood Test">Blood Test</option>
-                    <option value="X-Ray">X-Ray</option>
-                    <option value="MRI Scan">MRI Scan</option>
-                    <option value="Ultrasound">Ultrasound</option>
-                    <option value="Vaccination">Vaccination</option>
-                    <option value="Physical Therapy">Physical Therapy</option>
-                    <option value="Surgery">Surgery</option>
-                    <option value="Dental Check-up">Dental Check-up</option>
-                    <option value="Eye Examination">Eye Examination</option>
-                    <option value="Cardiology Consultation">Cardiology Consultation</option>
-                </select>
-                
-                <label htmlFor="location">Location:</label>
-                <input type="text" id="location" value={formData.location} onChange={handleChange} required />
-                
-                <label htmlFor="doctor">Doctor:</label>
-                <input type="text" id="doctor" value={formData.doctor} onChange={handleChange} required />
-                
-                <label htmlFor="department">Department:</label>
-                <select id="department" value={formData.department} onChange={handleChange} required>
-                    <option value="Cardiology">Cardiology</option>
-                    <option value="Dermatology">Dermatology</option>
-                    <option value="Emergency Medicine">Emergency Medicine</option>
-                    <option value="Endocrinology">Endocrinology</option>
-                    <option value="Gastroenterology">Gastroenterology</option>
-                    <option value="General Surgery">General Surgery</option>
-                    <option value="Gynecology">Gynecology</option>
-                    <option value="Neurology">Neurology</option>
-                    <option value="Oncology">Oncology</option>
-                    <option value="Orthopedics">Orthopedics</option>
-                    <option value="Pediatrics">Pediatrics</option>
-                    <option value="Psychiatry">Psychiatry</option>
-                    <option value="Radiology">Radiology</option>
-                    <option value="Urology">Urology</option>
-                    <option value="Ophthalmology">Ophthalmology</option>
-                </select>
+                <label htmlFor="venue">Venue:</label>
+                <input type="text" id="venue" value={formData.venue} onChange={handleChange} required />
                 
                 <label htmlFor="duration">Duration:</label>
                 <input type="text" id="duration" value={formData.duration} onChange={handleChange} required />
                 
-                <label htmlFor="specialInstructions">Special Instructions:</label>
-                <input type="text" id="specialInstructions" value={formData.specialInstructions} onChange={handleChange} />
+                <label htmlFor="messageTemplate">Message Template:</label>
+                <textarea id="messageTemplate" value={formData.messageTemplate} onChange={handleChange} required />
                 
-                <label htmlFor="appointmentDate">Appointment Date:</label>
-                <input type="date" id="appointmentDate" value={formData.appointmentDate} onChange={handleChange} required />
-                
-                <button type="submit" className="add-appointment">Add Appointment</button>
+                <button type="submit" className="add-reminder">Add Reminder</button>
                 <button type="button" className="cancel" onClick={handleCancel}>Cancel</button>
             </form>
-            <h2>Appointments</h2>
-            <ul id="appointmentList">
-                {appointments.map((appointment, index) => (
+            <h2>Scheduled Reminders</h2>
+            <ul id="reminderList">
+                {reminders.map((reminder, index) => (
                     <li key={index}>
-                        {appointment.patientName} - {appointment.appointmentType} on {appointment.appointmentDate}
+                        {reminder.patientName} - {reminder.reminderType} on {reminder.appointmentDate} at {reminder.appointmentTime}
+                        <br />
+                        Venue: {reminder.venue}, Duration: {reminder.duration}
+                        <br />
+                        Message: {reminder.messageTemplate}
                     </li>
                 ))}
             </ul>
