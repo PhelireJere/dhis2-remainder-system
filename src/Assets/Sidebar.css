@@ -4,6 +4,7 @@
     background-color: #2C6693; 
     display: flex;
     flex-direction: column;
+    position: fixed;
 }
 
 .sidebar-header {
@@ -41,8 +42,8 @@
     text-align: center;
     font-size: 0.875rem; 
 }
-.Button {
-    color: #000000;
+.button {
+    color: black;
     background-color: lightgray;
     border: none;
     padding: 10px 20px;
@@ -51,6 +52,6 @@
     cursor : pointer;
 }
 
-.Button.hover{
-    background-color: #c0c0c0;
+.button.hover{
+    background-color: #cd0a0a;
 }

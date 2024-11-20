@@ -11,28 +11,28 @@ const Sidebar = () => {
       <nav className="sidebar-nav">
         
           <Link to="/">
-              <button className="button">
+              <button class="button">
               Dashboard
               </button>
           </Link>
           
           <Link to="/registration">
-              <button >
+              <button className="button">
               Registration
               </button>
           </Link>
           <Link to="/Enroll">
-              <button >
+              <button className="button">
               Enroll
               </button>
           </Link>
           <Link to="/messaging">
-              <button >
+              <button className="button">
               Messaging
               </button>
           </Link>
           <Link to="/schedule">
-              <button >
+              <button className="button">
               Appointment Schedule
               </button>
           </Link>
