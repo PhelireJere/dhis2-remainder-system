@@ -2,7 +2,6 @@
     width: 16rem; 
     height: 100vh;
     background-color: #2C6693; 
-    color: white;
     display: flex;
     flex-direction: column;
 }
@@ -41,4 +40,17 @@
     border-top: 1px solid #4a5568; 
     text-align: center;
     font-size: 0.875rem; 
+}
+.Button {
+    color: #000000;
+    background-color: lightgray;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor : pointer;
+}
+
+.Button.hover{
+    background-color: #c0c0c0;
 }
