@@ -11,11 +11,10 @@
     "deploy": "d2-app-scripts deploy"
   },
   "devDependencies": {
-    "@dhis2/cli-app-scripts": "^11.7.5"
+    "@dhis2/cli-app-scripts": "^5.0.0"
   },
   "dependencies": {
-    "@dhis2-ui/sharing-dialog": "^9.13.0",
     "@dhis2/app-runtime": "^3.11.2",
-    "@popperjs/core": "^2.11.8"
+    "react-router-dom": "^6.28.0"
   }
 }
