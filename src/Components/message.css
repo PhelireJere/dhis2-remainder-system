@@ -38,6 +38,7 @@
     border-radius: 10px;
     margin-bottom: 10px;
     max-width: 80%;
+    position: relative;
 }
 
 .message.user {
@@ -52,21 +53,59 @@
     align-self: flex-start;
 }
 
-.message-form {
-    display: flex;
-    width: 100%;
+.timestamp {
+    font-size: 0.8em;
+    color: #666;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
 }
 
-.message-form input {
+.status {
+    font-size: 0.8em;
+    color: #666;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+}
+
+.delete-button {
+    background-color: #808080; /* Grey background for Delete button */
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.delete-button:hover {
+    opacity: 0.8;
+}
+
+.message-form, .feedback-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.message-form label, .feedback-form label {
+    margin-bottom: 5px;
+}
+
+.message-form input, .feedback-form input {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.send-button {
-    background-color: #007BFF;
+.send-button, .feedback-button {
+    background-color: #007BFF; /* Blue background for Send and Feedback buttons */
     color: white;
     border: none;
     padding: 10px;
@@ -75,15 +114,15 @@
 }
 
 .cancel-button {
-    background-color: #FF0000;
+    background-color: #FF0000; /* Red background for Cancel button */
     color: white;
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-top: 10px;
 }
 
-.send-button:hover, .cancel-button:hover {
+.send-button:hover, .cancel-button:hover, .feedback-button:hover {
     opacity: 0.8;
 }

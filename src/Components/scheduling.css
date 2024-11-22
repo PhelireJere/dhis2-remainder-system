@@ -5,14 +5,34 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 label {
-    display: block;
     margin-top: 10px;
 }
 
-input, select, button {
+input, select, textarea, button {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -20,33 +40,42 @@ input, select, button {
     border-radius: 5px;
 }
 
+textarea {
+    resize: vertical;
+}
+
 button {
-    width: 100%;
-    padding: 10px;
     margin-top: 20px;
     border: none;
     cursor: pointer;
 }
 
-button[type="submit"] {
-    background-color: #007BFF; /* Blue background for Add Appointment button */
+.add-reminder {
+    background-color: #007BFF; /* Blue background for Add Reminder button */
     color: white;
 }
 
-button[type="button"] {
+.cancel {
     background-color: #FF0000; /* Red background for Cancel button */
     color: white;
+    margin-top: 10px;
 }
 
 button:hover {
     opacity: 0.8;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+#reminderList {
+    width: 100%;
+    margin-top: 20px;
+    list-style-type: none;
+    padding: 0;
 }
 
-form > * {
+#reminderList li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     margin-bottom: 10px;
+    background-color: #f9f9f9;
 }
