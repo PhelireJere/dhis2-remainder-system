@@ -1,37 +1,29 @@
-import { useDataQuery } from '@dhis2/app-runtime'
-import i18n from '@dhis2/d2-i18n'
-import React from 'react'
-import classes from './App.module.css'
-import Enrollment from './Components/Enrollment'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Sidebar from "./Assets/Sidebar";
+import Dashboard from "./Components/Dashboard";
+import Register from "./Components/Register";
+import Enroll from "./Components/Enrollment";
+import Message from "./Components/message";
+import Schedule from "./Components/Schedulling";
 
-
-const query = {
-    me: {
-        resource: 'me',
-    },
-}
-
-const MyApp = () => {
-    const { error, loading, data } = useDataQuery(query)
-
-    if (error) {
-        return <span>{i18n.t('ERROR')}</span>
-    }
-
-    if (loading) {
-        return <span>{i18n.t('Loading...')}</span>
-    }
-
-    return (
-        
-        <div className={classes.container}>
-             <PatientEnrollment/>
-            <bio/>
-            <h1>{i18n.t('  {{hey}}', { name: data.me.name })}</h1>
-            <h3>{i18n.t('')}</h3>
-            <bio/>
+const App = () => {
+  return (
+    <Router>
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <div style={{ padding: "20px", flex: 1 }}>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/registration" element={<Register />} />
+            <Route path="/enroll" element={<Enroll />} />
+            <Route path="/messaging" element={<Message />} />
+            <Route path="/schedule" element={<Schedule />} />
+          </Routes>
         </div>
-    )
-}
+      </div>
+    </Router>
+  );
+};
 
-export default MyApp
+export default App;
