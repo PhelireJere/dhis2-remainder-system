@@ -36,6 +36,11 @@ const Sidebar = () => {
               Appointment Schedule
               </button>
           </Link>
+          <Link to="/registeredlist">
+              <button className="button">
+              Registered Patient
+              </button>
+          </Link>
         
       </nav>
       <div className="footer">
