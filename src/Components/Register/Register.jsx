@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { useDataQuery } from "@dhis2/app-runtime";
-//import { registerPatient } from "./Api";
+import { registerPatient } from "./Api";
 import "./Register.css";
 import { Button, NoticeBox, CircularLoader } from "@dhis2/ui";
 
@@ -39,7 +39,7 @@ const validateForm = (formData) => {
     }
   });
 
-  // Phone number validation
+  //Phone number validation
   const phoneRegex = /^[0-9]{10}$/;
   if (formData.phone && !phoneRegex.test(formData.phone)) {
     errors.phone = "Phone number must be 10 digits";
