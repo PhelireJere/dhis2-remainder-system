@@ -2,20 +2,19 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL:
-    "https://data.research.dhis2.org/in5320/api", // Update with your DHIS2 instance URL
+    "https://data.research.dhis2.org/in5320/api", 
   headers: {
     "Content-Type": "application/json",
-    Authorization: "Basic " + btoa("admin:district"), // Replace with your credentials
+    Authorization: "Basic " + btoa("admin:district"), 
   },
 });
 
-// Function to register a patient in DHIS2
 export const registerPatient = async (patientData) => {
     const data = {
-      trackedEntityType: "nEenWmSyUEp", // ID for "Person" or "Patient" entity type
-      orgUnit: "DFyu9VGpodC", // Organization unit ID
+      trackedEntityType: "nEenWmSyUEp", 
+      orgUnit: "DFyu9VGpodC", 
       attributes: [
-        { attribute: "w75KJ2mc4zz", value: patientData.firstName }, // Replace with actual attribute ID
+        { attribute: "w75KJ2mc4zz", value: patientData.firstName }, 
         { attribute: "zDhUuAYrxNC", value: patientData.lastName },
         { attribute: "iESIqZ0R0R0", value: patientData.dob },
         { attribute: "cejWyOfXge6", value: patientData.gender },
