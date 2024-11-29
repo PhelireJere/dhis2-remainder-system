@@ -12,7 +12,7 @@ const api = axios.create({
 export const registerPatient = async (patientData) => {
     const data = {
       trackedEntityType: "nEenWmSyUEp", 
-      orgUnit: "DFyu9VGpodC", 
+      orgUnit: "PMa2VCrupOd", 
       attributes: [
         { attribute: "w75KJ2mc4zz", value: patientData.firstName }, 
         { attribute: "zDhUuAYrxNC", value: patientData.lastName },
