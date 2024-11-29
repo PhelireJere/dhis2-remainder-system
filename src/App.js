@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sidebar from "./Assets/Sidebar";
 import Dashboard from "./Components/Dashboard";
 import Register from "./Components/Register/Register";
-import Enroll from "./Components/Enrollment";
+import Enroll from "./Components/Enrollment/Enrollment";
 import Message from "./Components/message";
 import Schedule from "./Components/Schedulling";
 import PatientList from "./Components/RegisteredList/RegisteredList"
