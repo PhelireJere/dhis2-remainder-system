@@ -28,7 +28,7 @@ const programsQuery = (orgUnitId) => ({
     programs: {
         resource: "programs",
         params: {
-            orgUnit:"PMa2VCrupOd",
+            orgUnit: "PMa2VCrupOd",
             fields: ["id", "displayName"],
             paging: false,
         },
@@ -42,7 +42,7 @@ const patientsQuery = (orgUnitId) => ({
             ou: "PMa2VCrupOd",
             trackedEntityType: "nEenWmSyUEp",
             fields: ["trackedEntityInstance", "attributes"],
-            pageSize: 50,
+            paging: false
         },
     },
 });
@@ -73,6 +73,9 @@ const Enroll = () => {
     const { loading: loadingPatients, data: patientsData, refetch: refetchPatients } =
         useDataQuery(patientsQuery(formData.orgUnit), { lazy: true });
 
+    console.log(patientsData);
+
+
     const orgUnitsList = mapToOptions(orgUnitsData?.orgUnits?.organisationUnits);
     const programsList = mapToOptions(programsData?.programs?.programs);
     const patientsList =
@@ -84,6 +87,9 @@ const Enroll = () => {
                 label: `${firstName || ""} ${lastName || ""}`.trim(),
             };
         }) || [];
+
+    const [selectedPatientDetails, setSelectedPatientDetails] = useState(null);
+
 
     useEffect(() => {
         if (formData.orgUnit) {
@@ -97,6 +103,22 @@ const Enroll = () => {
             ...prev,
             [fieldName]: selectedOption?.value || "",
         }));
+
+        if (fieldName === "patientId" && selectedOption) {
+            const patientDetails = patientsData?.patients?.trackedEntityInstances?.find(
+                (patient) => patient.trackedEntityInstance === selectedOption.value
+            );
+
+            if (patientDetails) {
+                const details = {
+                    id: patientDetails.trackedEntityInstance,
+                    firstName: patientDetails.attributes.find((attr) => attr.attribute === "w75KJ2mc4zz").value,
+                    lastName: patientDetails.attributes.find((attr) => attr.attribute === "zDhUuAYrxNC").value,
+                    phone: patientDetails.attributes.find((attr) => attr.attribute === "P2cwLGskgxn").value, // Example attribute for phone
+                };
+                setSelectedPatientDetails(details);
+            }
+        }
     };
 
     const handleEnroll = async () => {
@@ -111,16 +133,34 @@ const Enroll = () => {
 
         try {
             const enrollmentData = {
-                program: programEnrolled,
-                orgUnit,
+                program: "qQIsC9hO2Gj",
+                orgUnit: "rEk35avS8i1",
                 trackedEntityInstance: patientId,
                 enrollmentDate,
             };
 
             const response = await enrollPatient(enrollmentData);
+            console.log(response)
 
-            if (response.status === "OK") {
+            if (response) {
                 setStatus({ success: true, error: "", loading: false });
+                var formdata = new FormData();
+                formdata.append("api_key", "Ph4i9BVUxXknLl6hjUf2");
+                formdata.append("password", "Zione@062000");
+                formdata.append("text", `Hello ${selectedPatientDetails.firstName} ${selectedPatientDetails.lastName}, you have been enrolled to group8 health program`);
+                formdata.append("numbers", selectedPatientDetails.phone);
+                formdata.append("from", "WGIT");
+
+                var requestOptions = {
+                    method: 'POST',
+                    body: formdata,
+                    redirect: 'follow'
+                };
+
+                fetch("https://corsproxy.io/?https://telcomw.com/api-v2/send", requestOptions)
+                    .then(response => response.text())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
             } else {
                 setStatus({ success: false, error: ERROR_MESSAGES.UNEXPECTED_RESPONSE, loading: false });
             }
@@ -174,6 +214,7 @@ const Enroll = () => {
                     className="select-field"
                     placeholder="Select patient"
                     isLoading={loadingPatients}
+
                 />
             </div>
 

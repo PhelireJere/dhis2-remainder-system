@@ -33,7 +33,7 @@ const createPatientsQuery = (programId, page, pageSize) => ({
   },
 });
 
-const PatientList = () => {
+const RegisteredPatients = () => {
   const [patients, setPatients] = useState([]);
   const [filteredPatients, setFilteredPatients] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -43,7 +43,7 @@ const PatientList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const patientsPerPage = 10;
 
-  const programId = 'aDE0NeG4q0n';
+  const programId = 'HdymA445MIR';
 
   // Query to fetch patients
   const { loading, error, data, refetch } = useDataQuery(
@@ -252,4 +252,4 @@ const PatientList = () => {
   );
 };
 
-export default PatientList;
+export default RegisteredPatients;

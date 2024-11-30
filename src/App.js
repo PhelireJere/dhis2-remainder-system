@@ -6,7 +6,8 @@ import Register from "./Components/Register/Register";
 import Enroll from "./Components/Enrollment/Enrollment";
 import Message from "./Components/message";
 import Schedule from "./Components/Schedulling";
-import PatientList from "./Components/RegisteredList/RegisteredList"
+import RegisteredPatients from "./Components/RegisteredList/RegisteredList"
+import PatientList from "./Components/PatientList/PatientList";
 
 const App = () => {
   return (
@@ -20,7 +21,8 @@ const App = () => {
             <Route path="/enroll" element={<Enroll />} />
             <Route path="/messaging" element={<Message />} />
             <Route path="/schedule" element={<Schedule />} />
-            <Route path="/registeredlist" element={ <PatientList/>}/>
+            <Route path="/registeredlist" element={ <RegisteredPatients/>}/>
+            <Route path="/patientlist" element={ <PatientList/>}/>
           </Routes>
         </div>
       </div>

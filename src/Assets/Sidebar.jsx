@@ -38,9 +38,16 @@ const Sidebar = () => {
           </Link>
           <Link to="/registeredlist">
               <button className="button">
-              Registered Patient
+              Enrolled Patient
               </button>
           </Link>
+
+          <Link to="/patientlist">
+              <button className="button">
+             Registered Patient
+              </button>
+          </Link>
+        
         
       </nav>
       <div className="footer">
