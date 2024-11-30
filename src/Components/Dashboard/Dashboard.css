@@ -1,0 +1,23 @@
+.dashboard {
+    height: 100vh;
+    width: 100%;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fdhis_2&psig=AOvVaw0YT2XAiDw9XL9yR2k94QhU&ust=1733083386471000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwjqiJru7ISKAxUZXkEAHbyrCmMQjRx6BAgAEBc");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .welcome-message {
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    font-family: "Arial", sans-serif;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
