@@ -15,9 +15,3 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-
-{/* <div className="dashboard-container">
-
-<h1>WELCOME TO GROUP 8 <br/>DHIS2 PATIENT REMAINDER SYSTEM</h1>
-
-</div> */}
