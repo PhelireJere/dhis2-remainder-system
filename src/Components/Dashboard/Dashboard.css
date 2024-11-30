@@ -1,0 +1,23 @@
+.dashboard {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-color: #f0f4f8;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .welcome-message {
+   
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    color:  #2C6693;
+    font-family: "Arial", sans-serif;
+    font-size:2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  

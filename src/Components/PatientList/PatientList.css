@@ -1,0 +1,33 @@
+.patient-list {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .patient-list select {
+    margin: 20px 0;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .loader {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
