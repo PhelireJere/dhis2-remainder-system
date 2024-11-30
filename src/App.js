@@ -7,9 +7,9 @@ import Sidebar from "./Asserts/sidebar";
 import Dashboard from "./Components/Dashboard";
 import Register from "./Components/Register";
 import Enroll from "./Components/Enrollment";
-//import Appointments from "./pages/Appointments";
+import Schedulling from './Components/scheduling/Schedulling';;
 import Message from "./Components/message";
-import Schedulling from "./Components/scheduling/Schedulling";
+
 
 const App = () => {
   return (
@@ -22,7 +22,7 @@ const App = () => {
             <Route path="/registration" element={<Register />} />
             <Route path="/enroll" element={<Enroll />} />
             <Route path="/messaging" element={<Message />} />
-            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/Schedullling" element={<Schedulling />} />
           </Routes>
         </div>
       </div>
