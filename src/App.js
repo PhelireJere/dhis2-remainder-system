@@ -9,7 +9,7 @@ import Register from "./Components/Register";
 import Enroll from "./Components/Enrollment";
 //import Appointments from "./pages/Appointments";
 import Message from "./Components/message";
-import Schedule from "./Components/Schedulling";
+import Schedulling from "./Components/scheduling/Schedulling";
 
 const App = () => {
   return (
