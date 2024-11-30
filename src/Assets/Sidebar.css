@@ -47,7 +47,8 @@
     color: black;
     background-color: lightgray;
     border: none;
-    padding: 10px 20px;
+    padding: 20px;
+    size: inherit;
     font-size: 16px;
     border-radius: 5px;
     cursor : pointer;
