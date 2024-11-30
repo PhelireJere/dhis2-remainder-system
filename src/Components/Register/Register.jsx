@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDataQuery } from "@dhis2/app-runtime";
-import { registerPatient } from "./Api";
+import { registerPatient } from "./api";
 import "./Register.css";
 import { Button, NoticeBox, CircularLoader } from "@dhis2/ui";
 
